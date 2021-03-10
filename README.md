@@ -41,4 +41,17 @@ Front:
 
 Backend:
 - npm install
-- npm run dev
+- npm run dev (a mongoDB DDBB is required)
+
+Mongo DDBB:
+- is required a DB running on http://localhost:27017.
+- I installed the MongoDB community. 
+- since there is no signup logic, a post to /signup with below json as body is required. Otherwise you will not be able to login in the front.
+
+```json
+{
+  "email": "no-validation-be-free",
+  "password": "no-validation-be-free"
+}
+
+```
