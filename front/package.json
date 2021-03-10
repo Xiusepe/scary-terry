@@ -1,0 +1,51 @@
+{
+  "name": "scary-terry-beach",
+  "version": "1.0.0",
+  "description": "Find Rick & Morty characters and show their detail",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html",
+    "test": "jest",
+    "lint": "eslint \"src/**/*.{ts,tsx}\"",
+    "clean": "rimraf dist && rimraf .parcel-cache"
+  },
+  "author": "JLDRM",
+  "license": "ISC",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
+    "axios": "^0.21.1",
+    "clsx": "^1.1.1",
+    "normalize.css": "^8.0.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.8",
+    "@babel/plugin-syntax-flow": "^7.12.13",
+    "@babel/preset-env": "^7.13.9",
+    "@babel/preset-react": "^7.12.13",
+    "@babel/preset-typescript": "^7.13.0",
+    "@parcel/transformer-image": "^2.0.0-nightly.2244",
+    "@parcel/transformer-sass": "^2.0.0-nightly.622",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.2",
+    "@types/react-redux": "^7.1.16",
+    "@types/react-router-dom": "^5.1.7",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-jest": "^24.1.7",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "jest": "^26.6.3",
+    "parcel": "^2.0.0-beta.1",
+    "prettier": "^2.2.1",
+    "rimraf": "^3.0.2"
+  },
+  "browserslist": [
+    "last 1 Chrome versions"
+  ]
+}

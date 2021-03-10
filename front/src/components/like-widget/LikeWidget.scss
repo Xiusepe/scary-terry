@@ -1,0 +1,21 @@
+@import '../../styles/theme.scss';
+
+.LikeWidget {
+  width: 25px;
+
+  .isSongFav1 {
+    fill: #ec5569;
+  }
+  .isSongFav2 {
+    fill: #e63950;
+  }
+  .isSongFav3 {
+    fill: #ec5569;
+  }
+  .isSongFav4 {
+    fill: #fff5f5;
+  }
+  .isSongFav5 {
+    fill: #dce6eb;
+  }
+}

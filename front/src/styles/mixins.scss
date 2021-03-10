@@ -1,0 +1,119 @@
+@import './theme.scss';
+
+///
+/// Creates a column flex based on the base columns defined in variables
+/// @author https://github.com/twbs/bootstrap/blob/8fccaa2439e97ec72a4b7dc42ccc1f649790adb0/scss/mixins/_grid.scss
+///
+@mixin make-col($size, $columns: $grid-columns) {
+  flex: 0 0 percentage($size / $columns);
+  // Add a `max-width` to ensure content within each column does not blow out
+  // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+  // do not appear to require this.
+  max-width: percentage($size / $columns);
+  max-height: percentage($size / $columns);
+}
+
+///
+/// Creates all style required for the generation of the flex-boxing of a grid container
+/// using the props of the items
+/// @author JLDRM
+///
+@mixin create-grid-size() {
+  &-auto {
+    flex: 0 0 auto;
+    max-width: none;
+  }
+  &-1 {
+    @include make-col(1);
+  }
+  &-2 {
+    @include make-col(2);
+  }
+  &-3 {
+    @include make-col(3);
+  }
+  &-4 {
+    @include make-col(4);
+  }
+  &-5 {
+    @include make-col(5);
+  }
+  &-6 {
+    @include make-col(6);
+  }
+  &-7 {
+    @include make-col(7);
+  }
+  &-8 {
+    @include make-col(8);
+  }
+  &-9 {
+    @include make-col(9);
+  }
+  &-10 {
+    @include make-col(10);
+  }
+  &-11 {
+    @include make-col(11);
+  }
+  &-12 {
+    @include make-col(12);
+  }
+}
+
+///
+/// Creates all style required for the generation of the spacing of a grid container
+/// using the props of the items
+/// @author JLDRM
+///
+@mixin create-grid-spacing() {
+  &-1 {
+    @include getSpacingByValue(1);
+  }
+  &-2 {
+    @include getSpacingByValue(2);
+  }
+  &-3 {
+    @include getSpacingByValue(3);
+  }
+  &-4 {
+    @include getSpacingByValue(4);
+  }
+  &-5 {
+    @include getSpacingByValue(5);
+  }
+}
+
+///
+/// Creates all style required for the spacing of the items within a grid container
+/// @author https://github.com/mui-org/material-ui/blob/next/packages/material-ui/src/Grid/Grid.js
+///
+@mixin getSpacingByValue($val) {
+  margin: -#{getOffset($val, 2)};
+  width: calc(100% + #{getOffset($val)});
+
+  & > .item {
+    padding: getOffset($val, 2);
+  }
+}
+
+///
+/// Support function to compute the final spacing based on the base spacing unit difined in variables
+/// divided by a divident
+/// @author https://github.com/mui-org/material-ui/blob/next/packages/material-ui/src/Grid/Grid.js
+///
+@function getOffset($space, $divident: 1) {
+  $spacing: $app-base-spacing * $space;
+  $result: #{$spacing / $divident}px;
+  @return $result;
+}
+
+///
+/// Support function to compute the final spacing based on the base spacing unit difined in variables
+/// @author JLDRM
+///
+@function getSpacingByBaseSpacing($space) {
+  $spacingBy: $app-base-spacing * $space;
+  $result: #{$spacingBy}px;
+  @return $result;
+}

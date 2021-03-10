@@ -1,0 +1,17 @@
+@import '../../../styles/theme.scss';
+
+.Navbar {
+  background-color: $primary-color;
+  max-width: inherit;
+  height: $NavbarHeight;
+  position: fixed;
+  top: 0;
+
+  &.collections {
+    background-color: $secondary-color;
+  }
+}
+
+.fixed-position-offset {
+  height: $NavbarHeight;
+}
