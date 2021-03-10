@@ -1,16 +1,15 @@
 import mongoose from 'mongoose';
 import cuid from 'cuid';
 import _ from 'lodash';
-import { Item } from './src/resources/item/item.model';
-import { List } from './src/resources/list/list.model';
+import { FavCharacter } from './src/resources/fav-character/favCharacter.model';
 import { User } from './src/resources/user/user.model';
 
-const models = { User, List, Item };
+const models = { User, FavCharacter };
 
 const url =
   process.env.MONGODB_URI ||
   process.env.DB_URL ||
-  'mongodb://localhost:27017/tipe-devapi-testing';
+  'mongodb://localhost:27017/devapi-testing';
 
 global.newId = () => {
   return mongoose.Types.ObjectId();
@@ -39,7 +38,6 @@ beforeEach(async done => {
       await clearDB();
       await Promise.all(Object.keys(models).map(name => models[name].init()));
     } catch (e) {
-      console.log('connection error');
       console.error(e);
       throw e;
     }

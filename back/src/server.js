@@ -6,9 +6,8 @@ import { connect } from './utils/db';
 
 import config from './config';
 
-import itemRouter from './resources/item/item.router';
-import listRouter from './resources/list/list.router';
-import { signup, signin, protect } from './utils/auth';
+import favCharacterRouter from './resources/fav-character/favCharacter.router';
+import { signup, signin } from './utils/auth';
 
 export const app = express();
 
@@ -24,9 +23,8 @@ app.use(morgan('dev'));
 app.post('/signup', signup);
 app.post('/signin', signin);
 
-app.use('/api', protect);
-app.use('/api/item', itemRouter);
-app.use('/api/list', listRouter);
+// app.use('/api', protect);
+app.use('/api/fav', favCharacterRouter);
 
 export const start = async () => {
   try {

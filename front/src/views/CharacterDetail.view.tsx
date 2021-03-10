@@ -17,6 +17,7 @@ function CharacterDetail() {
   );
 
   useEffect(() => {
+    console.log(characterId);
     dispatch(requestCharacterById(characterId));
   }, [characterId]);
 

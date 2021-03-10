@@ -11,7 +11,7 @@ function CharacterDetailRouting() {
   return (
     <Switch>
       {/* nested routing example */}
-      <Route path={`${path}/:CharacterId`}>
+      <Route path={`${path}/:characterId`}>
         <CharacterDetail />
       </Route>
     </Switch>

@@ -1,14 +1,13 @@
 import mongoose from 'mongoose';
 
-const listSchema = new mongoose.Schema(
+const favCharacterSchema = new mongoose.Schema(
   {
-    name: {
+    id: {
       type: String,
       required: true,
       trim: true,
       maxlength: 50
     },
-    description: String,
     createdBy: {
       type: mongoose.SchemaTypes.ObjectId,
       ref: 'user',
@@ -18,6 +17,6 @@ const listSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-listSchema.index({ user: 1, name: 1 }, { unique: true });
+favCharacterSchema.index({ user: 1, id: 1 }, { unique: true });
 
-export const List = mongoose.model('list', listSchema);
+export const FavCharacter = mongoose.model('fav-character', favCharacterSchema);

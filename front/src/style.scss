@@ -1,3 +1,22 @@
 body {
   background-color: papayawhip;
 }
+
+.no-react-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @keyframes loading {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  img {
+    animation: loading 3s infinite;
+  }
+}
