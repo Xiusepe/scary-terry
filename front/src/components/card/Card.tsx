@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import './Card.scss';
 
 import Grid from '../grid/Grid';
-import LikeWidget from '../like-widget/LikeWidget';
 import { Character } from '~core/models/rickMortyApi.models';
 
 export interface CardProps {
@@ -46,9 +45,6 @@ const Card = (props: CardProps) => {
           </Grid>
           <Grid className="secondary-text" item s={12} m={12} l={12} xl={12}>
             <p>{character && character.origin.name + ' - ' + character.origin.dimension}</p>
-          </Grid>
-          <Grid className="like-widget" item s={12} m={12} l={12} xl={12} container justifyContent="flex-end">
-            <LikeWidget characterId={character.id} />
           </Grid>
         </Grid>
       </Grid>

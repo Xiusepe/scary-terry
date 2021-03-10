@@ -15,8 +15,6 @@ function Home() {
   const { isLoadingCharacters, charactersList } = useSelector((appState: RootState) => appState.characters);
 
   useEffect(() => {
-    console.log('titooo');
-
     dispatch(requestCharactersByName(''));
   }, []);
 

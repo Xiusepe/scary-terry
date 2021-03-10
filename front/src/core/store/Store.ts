@@ -3,11 +3,12 @@ import { Action, configureStore, ThunkAction } from "@reduxjs/toolkit";
 import thunkMiddleware from 'redux-thunk';
 
 import userSessionReducer from "./user-session/userSessionSlice";
+import characterDetailReducer from "./rick-morty-api/characterDetailSlice";
 import charactersReducer from "./rick-morty-api/charactersSlice";
 import favCharacterReducer from "./rick-morty-api/favCharactersSlice";
 
 export const store = configureStore({
-  reducer: { characters: charactersReducer, user: userSessionReducer, favCharacters: favCharacterReducer, },
+  reducer: { user: userSessionReducer, character: characterDetailReducer, characters: charactersReducer, favCharacters: favCharacterReducer, },
   middleware: [thunkMiddleware],
 });
 

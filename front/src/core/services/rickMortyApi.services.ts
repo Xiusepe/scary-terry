@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { Character, CharacterDetail, FavCharacter, GetCharactersResponse } from "../../core/models/rickMortyApi.models";
+import { FavCharacter, GetCharacterDetailResponse, GetCharactersResponse } from "../../core/models/rickMortyApi.models";
 
 
 export function getFavList(): Promise<AxiosResponse<FavCharacter[]>> {
@@ -45,11 +45,11 @@ export function getCharactersBySearchValue(searchValue = ''): Promise<AxiosRespo
   });
 };
 
-export function getCharacterById(characterId = '1'): Promise<AxiosResponse<CharacterDetail>> {
+export function getCharacterById(characterId = '1'): Promise<AxiosResponse<GetCharacterDetailResponse>> {
   return axios.post('https://rickandmortyapi.com/graphql', {
     query: `
     query {
-      character(id: ${characterId}) {
+      character(id: "${characterId}") {
         id
         name
         status

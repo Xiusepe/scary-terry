@@ -43,7 +43,7 @@ export const requestCharacterById = (characterId: string): AppThunk => async (di
   try {
     dispatch(requestedCharacterDetail());
     const { data } = await getCharacterById(characterId);
-    dispatch(succeedCharacterDetail(data));
+    dispatch(succeedCharacterDetail(data.data.character));
   } catch (e) {
     console.error(e);
     dispatch(failedCharacterDetail(e));

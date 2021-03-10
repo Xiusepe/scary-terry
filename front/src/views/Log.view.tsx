@@ -29,13 +29,13 @@ function Log() {
 
   return (
     <Container viewContainer>
-      <form id={'login'}>
+      <form id="login">
         <Grid container direction="column" alignItems="center" spacing={1}>
           <Grid item>
             <input
               type="email"
               required
-              form={'login'}
+              form="login"
               autoComplete="true"
               onChange={(e) => setEmail(e.target.value)}
             ></input>
@@ -43,7 +43,7 @@ function Log() {
           <Grid item>
             <input
               type="password"
-              form={'login'}
+              form="login"
               required
               onChange={(e) => setPassword(e.target.value)}
             ></input>
@@ -55,7 +55,7 @@ function Log() {
           </Grid>
           {error && (
             <Grid item>
-              <span>{error}</span>
+              <span>Correct pasword and email are required</span>
             </Grid>
           )}
         </Grid>

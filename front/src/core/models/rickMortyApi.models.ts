@@ -20,11 +20,15 @@ export interface CharacterDetail {
   type: string;
   status: string;
   gender: string;
-  origin: string;
+  origin: Origin;
   image: string;
 }
 
 export interface GetCharactersResponse {
   data: { characters: { results: Character[]; }; };
 
+}
+
+export interface GetCharacterDetailResponse {
+  data: { character: CharacterDetail; };
 }
