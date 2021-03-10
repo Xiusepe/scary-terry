@@ -23,7 +23,7 @@ function Log() {
 
   useEffect(() => {
     if (user && user.token) {
-      history.push('/home');
+      history.push('/');
     }
   }, [user]);
 

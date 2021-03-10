@@ -70,7 +70,6 @@ export const signin = async (req, res) => {
 };
 
 export const protect = async (req, res, next) => {
-  console.log(req.headers, 'headers');
   if (!req.headers.authorization) {
     return res.status(401).send({ message: 'no auth in headers' });
   }

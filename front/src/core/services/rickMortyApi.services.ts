@@ -1,21 +1,23 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { FavCharacter, GetCharacterDetailResponse, GetCharactersResponse } from "../../core/models/rickMortyApi.models";
+import { GetCharacterDetailResponse, GetCharactersResponse, PostNewFavResponse } from "../../core/models/rickMortyApi.models";
 
 
-export function getFavList(): Promise<AxiosResponse<FavCharacter[]>> {
-  return axios.get('http:/localhost:3000/api/list', {
+export function getFavList(): Promise<AxiosResponse<PostNewFavResponse>> {
+  const token = getUserToken();
+  return axios.get('http://localhost:3000/api/fav', {
     headers: {
-      'Authorization': `Bearer ${getUserToken}`,
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     }
   });
 };
 
-export function mutateFavList(characterId: string): Promise<AxiosResponse<FavCharacter[]>> {
-  return axios.put('http:/localhost:3000/api/list', { characterId }, {
+export function mutateFavList(characterId: string): Promise<AxiosResponse<PostNewFavResponse>> {
+  const token = getUserToken();
+  return axios.post('http://localhost:3000/api/fav', { id: characterId }, {
     headers: {
-      'Authorization': `Bearer ${getUserToken}`,
+      'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json'
     }
   });
@@ -70,6 +72,6 @@ export function getCharacterById(characterId = '1'): Promise<AxiosResponse<GetCh
   });
 };
 
-const getUserToken = (): string => {
-  return 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwNDg3Yjc1OTlkZmUzMjAxYzQ4OWY0MSIsImlhdCI6MTYxNTM2MjkzMywiZXhwIjoxNjI0MDAyOTMzfQ.8feMOi_n2W9wLz-PKhiC746p2GtQ_IgzeFSAF2jm4sw';
+const getUserToken = (): string | null => {
+  return window.sessionStorage.getItem('token');
 };

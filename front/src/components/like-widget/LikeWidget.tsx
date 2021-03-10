@@ -21,8 +21,10 @@ const LikeWidget = (props: LikeWidgetProps) => {
   const [isFavCharacter, setIsFavCharacter] = useState<boolean>(false);
 
   useEffect(() => {
-    const isFav = favCharacterList.find((favCharacter) => favCharacter.id === characterId);
-    setIsFavCharacter(Boolean(isFav));
+    if (favCharacterList) {
+      const isFav = favCharacterList.find((favCharacter) => favCharacter.id === characterId);
+      setIsFavCharacter(Boolean(isFav));
+    }
   }, [characterId, favCharacterList]);
 
   function handleLikeWidgetClick() {

@@ -10,7 +10,7 @@ export const requestFavList = (): AppThunk => async (dispatch: any) => {
   try {
     dispatch(requestedFav());
     const { data } = await getFavList();
-    dispatch(succeedFav(data));
+    dispatch(succeedFav(data.data));
   } catch (e) {
     console.error(e);
     dispatch(failedFav(e));
@@ -21,7 +21,7 @@ export const requestFavMutation = (characterId: string): AppThunk => async (disp
   try {
     dispatch(requestedFav());
     const { data } = await mutateFavList(characterId);
-    dispatch(succeedFav(data));
+    dispatch(succeedFav(data.data));
   } catch (e) {
     console.error(e);
     dispatch(failedFav(e));

@@ -32,9 +32,14 @@ export const getMany = model => async (req, res) => {
 };
 
 export const createOne = model => async (req, res) => {
+  console.log('tato', req.body, req.user);
   try {
-    const doc = await model.create({ ...req.body, createdBy: req.user._id });
-    return res.status(201).json({ data: doc });
+    await model.create({ ...req.body, createdBy: req.user._id });
+    const docs = await model
+      .find()
+      .lean()
+      .exec();
+    return res.status(201).json({ data: docs });
   } catch (e) {
     console.error(e);
     return res.status(500).end();

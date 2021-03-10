@@ -13,7 +13,7 @@ const NavbarLogo = (props: NavbarLogoProps) => {
   const history = useHistory();
 
   const onLogoClick = () => {
-    history.push('/home');
+    history.push('/');
   };
 
   return (

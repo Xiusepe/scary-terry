@@ -7,8 +7,9 @@ import { postLogin } from "../services/userSession.services";
 export const requestLogIn = (loginData: LogInData): AppThunk => async (dispatch: any) => {
   try {
     dispatch(requested());
-    const response = await postLogin(loginData);
-    dispatch(succeed(response.data));
+    const { data } = await postLogin(loginData);
+    sessionStorage.setItem('token', data.token);
+    dispatch(succeed(data));
   } catch (e) {
     console.error(e);
     dispatch(failed(e.message));

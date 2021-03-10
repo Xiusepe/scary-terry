@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 
 import Home from '../../views/Home.view';
 import Log from '../../views/Log.view';
+import NotFoundPage from '../../views/NotFoundPage';
 import CharacterDetailRouting from './CharacterDetailRoute';
 import Navbar from '../../common/layout/navbar/Navbar';
+import PrivateRoute from './AuthGuard';
 
 // Since routes are regular React components, they
 // may be rendered anywhere in the app, including in
@@ -24,16 +26,20 @@ function AppRouter() {
           <Log />
         </Route>
 
-        <Route exact path="/">
+        <PrivateRoute exact path="/">
           <Home />
-        </Route>
+        </PrivateRoute>
 
-        <Route path="/character-detail">
+        <PrivateRoute path="/character-detail">
           <CharacterDetailRouting />
+        </PrivateRoute>
+
+        <Route exact path="/404">
+          <NotFoundPage></NotFoundPage>
         </Route>
 
         <Route path="*">
-          <Redirect to="/" />
+          <Redirect to="/404" />
         </Route>
       </Switch>
     </Router>

@@ -1,5 +1,6 @@
 export interface FavCharacter {
   id: string,
+  _id: string;
 }
 
 export interface Origin {
@@ -24,9 +25,12 @@ export interface CharacterDetail {
   image: string;
 }
 
+export interface PostNewFavResponse {
+  data: FavCharacter[];
+}
+
 export interface GetCharactersResponse {
   data: { characters: { results: Character[]; }; };
-
 }
 
 export interface GetCharacterDetailResponse {

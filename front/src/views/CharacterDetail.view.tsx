@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { RootState } from '../core/store/Store';
-import { requestCharacterById } from '../core/thunks/rickMortyApi.thunks';
+import { requestCharacterById, requestFavList } from '../core/thunks/rickMortyApi.thunks';
 import Container from '../components/container/Container';
 import Grid from '../components/grid/Grid';
 import LikeWidget from '../components/like-widget/LikeWidget';
@@ -17,8 +17,8 @@ function CharacterDetail() {
   );
 
   useEffect(() => {
-    console.log(characterId);
     dispatch(requestCharacterById(characterId));
+    dispatch(requestFavList());
   }, [characterId]);
 
   return (
@@ -28,16 +28,12 @@ function CharacterDetail() {
           <h1>{characterDetail.name}:</h1>
           <Grid container direction="column">
             <Grid item>
-              <Grid container>
-                <Grid item s={12} m={6} l={6} xl={6}>
-                  <img src={characterDetail.image} alt={characterDetail.name}></img>
-                </Grid>
-                <Grid item s={12} m={6} l={6} xl={6}>
-                  <LikeWidget characterId={characterDetail.id} />
-                </Grid>
+              <Grid item s={12} m={6} l={6} xl={6}>
+                <img width={'100%'} src={characterDetail.image} alt={characterDetail.name}></img>
               </Grid>
-            </Grid>
-            <Grid container direction="column">
+              <Grid item s={12} m={6} l={6} xl={6}>
+                <LikeWidget characterId={characterDetail.id} />
+              </Grid>
               <Grid item s={12} m={12} l={12} xl={12}>
                 <p>
                   <b>Name:</b> {characterDetail.name}
